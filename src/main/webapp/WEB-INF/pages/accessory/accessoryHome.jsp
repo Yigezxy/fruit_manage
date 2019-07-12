@@ -69,6 +69,7 @@
 	     <div style="background-color:#173e65;height:20px;color:#fff;font-size:12px;padding-left:7px;">
 	     	添加附属品信息<font style="float:right;padding-right: 10px;" onclick="showAddAccessory('false')">x</font>
 	     </div>
+		   <!--添加附属品用的-->
 	     <form id="addAccessoryForm" action="add.action" method="post" onsubmit="checkAddAccessory()">
 		        名称：<input type="text" id="addAccessoryName" name="name" style="width:120px"/> <br/>
 		        价格：<input type="text" id="addAccessoryPrice" name="price" style="width:120px"/>
