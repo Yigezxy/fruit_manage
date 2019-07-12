@@ -17,8 +17,23 @@ public class UserServiceImpl implements UserService {
 
 
     public ResultInfo searchAll() {
-        List<User> users=userMapper.searchAll();
+        List<User> users = userMapper.searchAll();
         return new ResultInfo(1, users);
+    }
+
+    @Override
+    public List<User> find(User user) {
+        return userMapper.find(user);
+    }
+
+    @Override
+    public void insert(User user) {
+        userMapper.insert(user);
+    }
+
+    @Override
+    public List<User> findByName(User user) {
+        return userMapper.findByName(user);
     }
 }
 
