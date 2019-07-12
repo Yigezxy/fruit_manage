@@ -11,6 +11,6 @@ import java.util.List;
  */
 @Mapper
 public interface UserMapper {
-    @Select("<script> select userid as userId,name as name from user </script>")
+    @Select("<script>select userid as userId,name as name from user </script>")
     List<User> searchAll();
 }
