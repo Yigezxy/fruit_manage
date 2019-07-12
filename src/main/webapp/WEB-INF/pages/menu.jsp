@@ -6,6 +6,7 @@
      <a href="${pageContext.request.contextPath}/commodities/list.action">货物管理</a>|
      <a href="${pageContext.request.contextPath}/retailer/list.action?status=-1">零售商管理</a>|
      <a href="${pageContext.request.contextPath}/contract/list.action?type=-1">购销合同</a>|
+     <a href="${pageContext.request.contextPath}/accessory/index">附属品管理</a>
      <a>用户设置</a></div>
 </div>
 <div style="background-color:#cccccc">

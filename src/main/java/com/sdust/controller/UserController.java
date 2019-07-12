@@ -23,14 +23,19 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping("searchAll")
-    public ResultInfo searchAll() {//http://localhost:8080/user/searchAll
+    public ResultInfo searchAll(){//http://localhost:8080/user/searchAll
         return userService.searchAll();
     }
 
     @RequestMapping("jsp")
-    public ModelAndView jsp() {//设置了前缀是/WEB-INF/pages/ 后缀是.jsp
-        ModelAndView mv = new ModelAndView("ceshi");
-        mv.addObject("ceshi", 666);
+    public ModelAndView jsp(){//设置了前缀是/WEB-INF/pages/ 后缀是.jsp
+        ModelAndView mv=new ModelAndView("ceshi");
+        mv.addObject("ceshi",666);
+        return mv;
+    }
+    @RequestMapping("jumpregister")
+    public ModelAndView jumpRegister(){
+        ModelAndView mv=new ModelAndView("register");
         return mv;
     }
 
