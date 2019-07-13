@@ -1,6 +1,8 @@
 package com.sdust.mapper;
 
 import com.sdust.entity.Accessory;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -15,9 +17,9 @@ public interface AccessoryMapper {
     List<Accessory> selectAll();
     @Select("<script>select accessoryid as accessoryId,fruitid as fruitId, name as name, price as price,createtime as createTime from accessory where fruitid=#{fruit} </script>")
     List<Accessory> selctByFruitId(String fruit);
-    @Select("insert into accessory values (#{accessoryId},#{fruitId},#{name},#{price},#{createTime})")
+    @Insert("insert into accessory values (#{accessoryId},#{fruitId},#{name},#{price},#{createTime})")
     void insert(Accessory accessory);
-    @Select("delete from accessory where accessoryid = #{id}; ")
+    @Delete("delete from accessory where accessoryid = #{id}; ")
     void deleteById(String id);
 //    @Select("delete from accessory where accessoryid in (#{ss}); ")
 //    void delete(String ss);
