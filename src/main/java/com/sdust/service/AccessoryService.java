@@ -12,7 +12,7 @@ import java.util.Map;
 public interface AccessoryService {
     ResultInfo SelectAll();
 
-    List<Accessory> find(Map<String, Object> map);
+    List<Accessory> find(Accessory accessory);
 
     void insert(Accessory accessory);
 

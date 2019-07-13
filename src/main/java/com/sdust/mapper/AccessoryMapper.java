@@ -13,8 +13,8 @@ public interface AccessoryMapper {
     @Select("<script>select accessoryid as accessoryId,fruitid as fruitId, name as name, price as price,createtime as createTime from accessory </script>")
     List<Accessory> selectAll();
 
-    @Select("<script>select accessoryid as accessoryId,fruitid as fruitId, name as name, price as price,createtime as createTime from accessory where fruitid=#{fruit} </script>")
-    List<Accessory> selctByFruitId(String fruit);
+    @Select("<script>select accessoryid as accessoryId,fruitid as fruitId, name as name, price as price,createtime as createTime from accessory where fruitid=#{fruitId} </script>")
+    List<Accessory> selctByFruitId(Accessory accessory);
 
     @Insert("insert into accessory values (#{accessoryId},#{fruitId},#{name},#{price},#{createTime})")
     void insert(Accessory accessory);
@@ -24,6 +24,9 @@ public interface AccessoryMapper {
 
     @Delete("delete from accessory where fruitid = #{id}")
     int deleteByFruitId(@Param("id") String fruitId);
+
+    @Delete("delete from accessory where accessoryid in (${ids})")
+    void deleteByIds(@Param("ids") String ids);
 //    @Select("delete from accessory where accessoryid in (#{ss}); ")
 //    void delete(String ss);
 }
