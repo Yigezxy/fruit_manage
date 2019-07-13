@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.sdust.entity.Retailer;
 import com.sdust.service.RetailerService;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,7 +26,7 @@ public class RetailerController {
 
     //跳转至列表页面
     @RequestMapping("/list.action")
-    public  String list(Model model, Retailer retailer, Date startTime, Date endTime){
+    public  String list(Model model, Retailer retailer, @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")Date startTime, @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")Date endTime){
         retailer.setName(checkStringIsEmpty(retailer.getName()));
         retailer.setTelphone(checkStringIsEmpty(retailer.getTelphone()));
         retailer.setAddress(checkStringIsEmpty(retailer.getAddress()));
@@ -36,11 +37,11 @@ public class RetailerController {
 
         List<Retailer> retailerList = retailerService.find(retailer,startTime,endTime);
         model.addAttribute("list",retailerList.size()<1?null:retailerList);
-        model.addAttribute("currentPage",retailer.getCurrentPage()==null?1:retailer.getCurrentPage());//当前页数【默认为1】
-        model.addAttribute("startPage",retailer.getStartPage()==null?0:retailer.getStartPage());//当前请求位置，默认为0
+        model.addAttribute("currentPage",retailer.getCurrentPage());//当前页数【默认为1】==null?1:retailer.getCurrentPage()
+        model.addAttribute("startPage",retailer.getStartPage());//当前请求位置，默认为0 ==null?0:retailer.getStartPage()
         Integer countNumber = retailerService.count(retailer,startTime,endTime);
         model.addAttribute("countNumber",countNumber);//数据总和
-        Integer pageSize = retailer.getPageSize()==null?10:retailer.getPageSize();
+        Integer pageSize = retailer.getPageSize();//==null?10:retailer.getPageSize()
         model.addAttribute("pageSize",pageSize);//每页数据，默认为10
         Integer sumPageNumber=countNumber%pageSize==0?(countNumber/pageSize):((countNumber/pageSize)+1);
         model.addAttribute("sumPageNumber",sumPageNumber);//总页数
@@ -82,7 +83,6 @@ public class RetailerController {
     public String add(Model model,Retailer retailer){
         retailer.setRetailerId(UUID.randomUUID().toString());
         retailer.setCreateTime(new Date());
-
         retailerService.insert(retailer);
         //构建新的列表查询条件，只需要status状态即可
         Retailer queryRetailer = new Retailer();

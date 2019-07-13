@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Created by Cierlly on 7/12/2019.
  */
-public interface IAccessoryService {
+public interface AccessoryService {
     ResultInfo SelectAll();
 
     List<Accessory> find(Map<String, Object> map);
@@ -18,4 +18,6 @@ public interface IAccessoryService {
 
     void deleteById(String accessoryId);
     void delete(String[] arrays);
+
+    int deleteByFruitId(String fruitId);
 }
