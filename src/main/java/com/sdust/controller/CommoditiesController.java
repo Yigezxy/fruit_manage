@@ -58,7 +58,7 @@ public class CommoditiesController {
     }
 
     @RequestMapping("/editCommodities.action")
-    public @ResponseBody
+    public @ResponseBody//返回json数据
     Commodities editCommodities(@RequestBody String json) {
         String id = JSONObject.parseObject(json).getString("id");
         //@ResponseBody将Commodities转成json格式输出

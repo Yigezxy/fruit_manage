@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,14 +23,14 @@ public class UserController {
     private UserService userService;
 
     @ResponseBody
-    @RequestMapping("searchAll")
+    @RequestMapping("searchAll")//test
     public ResultInfo searchAll(){//http://localhost:8080/user/searchAll
         return userService.searchAll();
     }
 
     @RequestMapping("jsp")
     public ModelAndView jsp(){//设置了前缀是/WEB-INF/pages/ 后缀是.jsp
-        ModelAndView mv=new ModelAndView("ceshi");
+        ModelAndView mv=new ModelAndView("ceshi");//test
         mv.addObject("ceshi",666);
         return mv;
     }
@@ -52,10 +53,10 @@ public class UserController {
 
     //列表
     @RequestMapping("/login.action")
-    public String login(User user, Model model, HttpServletRequest request) {
+    public String login(User user, Model model, HttpSession session) {
         List<User> userList = userService.find(user);
         if (userList != null && userList.size() > 0) {
-            request.getSession().setAttribute("user", userList.get(0));
+            session.setAttribute("user", userList.get(0));
             return "home";//转向主页
         }
         model.addAttribute("errorMsg", "登录失败！账号或密码错误！");//错误消息

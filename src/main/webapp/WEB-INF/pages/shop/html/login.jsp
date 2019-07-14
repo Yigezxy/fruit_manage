@@ -27,6 +27,7 @@
         <div class="sn-quick-menu">
             <div class="login"><a href="${request.getContextPath()}/shopper/login">登录</a></div>
             <div class="login"><a href="${request.getContextPath()}/register/html/register">注册</a></div>
+            <a href="${request.getContextPath()}/user/registerPage.action">管理员用户注册</a>
             <div class="sp-cart"><a href="${request.getContextPath()}/shopper/shopcar">购物车</a><span>2</span></div>
         </div>
     </div>

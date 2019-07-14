@@ -23,9 +23,11 @@
 	</script> 
   </head>
 <body onload="sampleApp1()">
+
 	<div id="content">
 		<div id="form">
 		  <h1>用户登录</h1><br/>
+		  <div class="login"><a href="${request.getContextPath()}/register/html/register">商城注册</a></div>
 		  <form action="login.action" method="post" id="myform"  onsubmit="return validate()">
 		         用户名<input type="text" id="username" name="userName" style="width:190px; height:26px; margin-left:39px;"/><br/>
 		  	  密码<input type="password" id="password" name="password" style="width:190px; height:26px; margin-top:8px;margin-left:54px;"/><br/>
