@@ -39,8 +39,10 @@ public class ShopController {
         System.out.println(shopper.getPassword());
         String phonenumber = shopper.getPhonenumber();
         Shopper shopper1 = shopperService.findUserByPhone(phonenumber);
-        String username = shopper1.getUsername();
+
         if(shopper1 != null){
+            String username = shopper1.getUsername();
+            System.out.println(shopper1);
             if (shopper1.getPassword().equals(shopper.getPassword())){
                 model.addAttribute("loginInfo","登录成功");
 

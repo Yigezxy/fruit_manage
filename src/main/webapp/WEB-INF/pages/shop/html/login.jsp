@@ -10,9 +10,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../res/static/css/main.css">
-    <link rel="stylesheet" type="text/css" href="../res/layui/css/layui.css">
-    <script type="text/javascript" src="../res/layui/layui.js"></script>
+    <link rel="stylesheet" type="text/css" href="${request.getContextPath()}/res/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="${request.getContextPath()}/res/layui/css/layui.css">
+    <script type="text/javascript" src="${request.getContextPath()}/res/layui/layui.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 </head>
@@ -39,7 +39,7 @@
         <div class="headerCon">
             <h1 class="mallLogo">
                 <a href="#" title="母婴商城">
-                    <img src="../res/static/img/logo.png">
+                    <img src="${request.getContextPath()}/res/static/img/logo.png">
                 </a>
                 <div>欢迎您，用户：${sessionScope.userInfo}</div>
             </h1>
@@ -133,7 +133,7 @@
 </div>
 <script type="text/javascript">
     layui.config({
-        base: '../res/static/js/util' //你存放新模块的目录，注意，不是layui的模块目录
+        base: '${request.getContextPath()}/res/static/js/util' //你存放新模块的目录，注意，不是layui的模块目录
     }).use(['jquery','form'],function(){
         var $ = layui.$,form = layui.form;
 
@@ -146,7 +146,7 @@
             var obj=this;
             $.ajax({
                 type:"get",
-                url:"../json/login.json",
+                url:"${request.getContextPath()}/json/login.json",
                 dataType:"json",//返回的
                 success:function(data) {
 
