@@ -21,20 +21,16 @@ public class AccessoryController {
     AccessoryService accessoryService;
     @RequestMapping("index")
     public String index(){
-        ModelAndView mv=new ModelAndView("/accessory/accessoryHome");
         return "/accessory/accessoryHome";
     }
     @RequestMapping("home")
-    public ModelAndView home(){
-        ModelAndView mv=new ModelAndView("/home");
-        return mv;
+    public String home(){
+        return "/home";
     }
 
     @RequestMapping("/list.action")
     public String list(Model model, Accessory accessory){
-        Map<String,Object> map = new HashMap<String,Object>();
-        map.put("fruitId",accessory.getFruitId());
-        List<Accessory> accessoryList = accessoryService.find(map);
+        List<Accessory> accessoryList = accessoryService.find(accessory);
         model.addAttribute("fruitId",accessory.getFruitId());
         model.addAttribute("list",accessoryList.size()<1?null:accessoryList);
         //计算附属品总价格并封装至model中

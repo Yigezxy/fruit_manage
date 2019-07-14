@@ -3,7 +3,6 @@ package com.sdust.service.serviceimpl;
 import com.sdust.entity.Accessory;
 import com.sdust.entity.ResultInfo;
 import com.sdust.mapper.AccessoryMapper;
-import com.sdust.service.IAccessoryService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -14,7 +13,7 @@ import java.util.Map;
  * Created by Cierlly on 7/12/2019.
  */
 @Service
-public class AccessoryService implements IAccessoryService {
+public class AccessoryService implements com.sdust.service.AccessoryService {
     @Resource
     private AccessoryMapper accessoryMapper;
     @Override
@@ -24,10 +23,8 @@ public class AccessoryService implements IAccessoryService {
     }
 
     @Override
-    public List<Accessory> find(Map<String, Object> map) {
-        String fruitid = (String) map.get("fruitId");
-        List<Accessory> list = accessoryMapper.selctByFruitId(fruitid);
-        return list;
+    public List<Accessory> find(Accessory accessory) {
+        return accessoryMapper.selctByFruitId(accessory);
     }
 
     @Override
@@ -41,9 +38,24 @@ public class AccessoryService implements IAccessoryService {
     }
 
     public void delete(String[] arrays) {
-      for (String i :arrays){
-          accessoryMapper.deleteById(i);
-      }
+        if(arrays==null||arrays.length==0){
+            return;
+        }
+        StringBuffer ids=new StringBuffer();
+        ids.append("'");
+        ids.append(arrays[0]);
+        ids.append("'");
+        for(int i=1;i<arrays.length;i++){
+            ids.append(" , '");
+            ids.append(arrays[i]);
+            ids.append("'");
+        }
+        accessoryMapper.deleteByIds(ids.toString());
 
+    }
+
+    @Override
+    public int deleteByFruitId(String fruitId) {
+        return accessoryMapper.deleteByFruitId(fruitId);
     }
 }

@@ -1,12 +1,14 @@
 package com.sdust.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.List;
 @Data
+//@JsonIgnoreProperties(value={"hibernateLazyInitializer","handler"})
 public class Contract {
 	private String contractId;
 	private String barCode;

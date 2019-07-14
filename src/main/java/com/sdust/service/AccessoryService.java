@@ -9,13 +9,15 @@ import java.util.Map;
 /**
  * Created by Cierlly on 7/12/2019.
  */
-public interface IAccessoryService {
+public interface AccessoryService {
     ResultInfo SelectAll();
 
-    List<Accessory> find(Map<String, Object> map);
+    List<Accessory> find(Accessory accessory);
 
     void insert(Accessory accessory);
 
     void deleteById(String accessoryId);
     void delete(String[] arrays);
+
+    int deleteByFruitId(String fruitId);
 }
