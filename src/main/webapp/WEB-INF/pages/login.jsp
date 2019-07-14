@@ -4,6 +4,7 @@
 <html>
   <head>
     <title>登录</title>
+
 	<link href="${pageContext.request.contextPath}/css/regcss.css" type="text/css" rel="stylesheet"/>
 	<script type="text/javascript">
 	 function  validate(){   
@@ -21,7 +22,7 @@
      }   
 	</script> 
   </head>
-<body>
+<body onload="sampleApp1()">
 	<div id="content">
 		<div id="form">
 		  <h1>用户登录</h1><br/>
@@ -41,5 +42,31 @@
 		  </c:if>
 	  </div>
 	</div>
+
+	<p>
+		<button id="btnChange" class="active">Change Model</button>
+	</p>
+
+	<div>
+		<canvas id="glcanvas" width="680" height="940">
+		</canvas>
+	</div>
+
+
+	<!-- Live2D Library -->
+	<script src="${request.getContextPath()}/lib/live2d.min.js"></script>
+
+	<!-- Live2D Framework -->
+	<script src="${request.getContextPath()}/asserts/framework/Live2DFramework.js"></script>
+
+	<!-- User's Script -->
+	<script src="${request.getContextPath()}/src/utils/MatrixStack.js"></script>
+	<script src="${request.getContextPath()}/src/utils/ModelSettingJson.js"></script>
+	<script src="${request.getContextPath()}/src/PlatformManager.js"></script>
+	<script src="${request.getContextPath()}/src/LAppDefine.js"></script>
+	<script src="${request.getContextPath()}/src/LAppModel.js"></script>
+	<script src="${request.getContextPath()}/src/LAppLive2DManager.js"></script>
+	<script src="${request.getContextPath()}/src/SampleApp1.js"></script>
+
 </body>
 </html>

@@ -25,8 +25,9 @@
             <a href="#">首页</a>
         </p>
         <div class="sn-quick-menu">
-            <div class="login"><a href="login.html">登录</a></div>
-            <div class="sp-cart"><a href="shopcart.html">购物车</a><span>2</span></div>
+            <div class="login"><a href="${request.getContextPath()}/shopper/login">登录</a></div>
+            <div class="login"><a href="${request.getContextPath()}/register/html/register">注册</a></div>
+            <div class="sp-cart"><a  href="${request.getContextPath()}/shopper/shopcar">购物车</a><span>2</span></div>
         </div>
     </div>
 </div>
