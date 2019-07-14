@@ -30,8 +30,8 @@ public interface ShopperMapper {
     @Select("<script> select * from commodities where name=#{name} </script>")
     List<Commodities> findFriutByName(String name);
 
-    @Select("<script> select * FROM commodities where fruitid=#{fruitid} </script>")//fruitid as fruitId, name, price, locality, createtime as createTime
-    Commodities findFriutById(String fruitid);
+        @Select("<script> select * FROM commodities where fruitid=#{fruitid} </script>")//fruitid as fruitId, name, price, locality, createtime as createTime
+        Commodities findFriutById(String fruitid);
 
 //    现在开始购物车
     @Insert("insert  into shoplist  values (#{shopid}, #{shopperid}, #{fruitid}, #{num},#{state})")
