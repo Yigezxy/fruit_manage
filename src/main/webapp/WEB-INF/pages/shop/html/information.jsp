@@ -62,7 +62,7 @@
                 <div class="inner-cont2">
                     <a href="/shopper/shop/commdity" >所有商品</a>
                     <a href="buytoday.html">今日团购</a>
-                    <a href="/shopper/shop/information" class="active">母婴资讯</a>
+                    <a href="/shopper/shop/information" class="active">水果资讯</a>
                     <a href="/shopper/shop/about">关于我们</a>
                 </div>
             </div>
